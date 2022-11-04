@@ -1,5 +1,7 @@
 <p>messenger works!</p>
 <p>all the logs here</p>
-<p>{{ logs }}</p>
+<div>
+<span *ngFor="let log of logs">{{ log }} <br/></span>
+</div>
 <button (click)='writeSomething(zinute)'>writeSomething</button>
 <input type="text" value="Sydney" [(ngModel)]="zinute" />

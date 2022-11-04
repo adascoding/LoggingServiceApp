@@ -6,13 +6,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class LoggingService {
 
-  private logsSubject = new BehaviorSubject<string>('default log');
+  private logsSubject = new BehaviorSubject<string[]>([]);
   logs$ = this.logsSubject.asObservable();
 
   constructor() { }
 
   updateLogs(message: string) {
-    this.logsSubject.next(message);
+    const fullMessage: string = new Date().toISOString() + ' ' + message;
+    const currentMessage: string[] = this.logsSubject.getValue();
+    currentMessage.push(fullMessage)
+    this.logsSubject.next(currentMessage);
     
   }
 }

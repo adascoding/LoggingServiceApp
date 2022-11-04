@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { MessengerComponent } from './components/messenger/messenger.component';
+import { EventsComponent } from './components/events/events.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessengerComponent
+    MessengerComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,

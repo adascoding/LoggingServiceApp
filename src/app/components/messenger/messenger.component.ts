@@ -10,13 +10,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class MessengerComponent implements OnInit {
   zinute:string = 'zinute';
-  logs:string = 'empty';
+  logs: string[] = [];
   subscription: Subscription = new Subscription;
 
-  constructor(private logsService: LoggingService) { }
+  constructor(private loggingService: LoggingService) { }
 
   ngOnInit(): void {
-    this.subscription = this.logsService.logs$.subscribe(logs => this.logs = logs)
+    this.subscription = this.loggingService.logs$.subscribe(logs$ => this.logs = logs$)
   }
 
   ngOnDestroy() {
@@ -24,7 +24,7 @@ export class MessengerComponent implements OnInit {
   }
 
   writeSomething(message: string): void {
-    this.logsService.updateLogs(message);
+    this.loggingService.updateLogs(message);
   }
 
 }
